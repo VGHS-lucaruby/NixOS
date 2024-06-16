@@ -20,7 +20,10 @@
     base0F = "FFC8DD";
   };
   
-  stylix.image = ../../Configurations/Wallpaper.jpg;
+  stylix.image = pkgs.fetchurl {
+    url = "https://live.staticflickr.com/65535/52753759673_1df3284e8b_o_d.jpg";
+    sha256 = "2f9d4387db6d7b598170eacfe6a6ee59486feb5fa3411bacab39ff02996c47bc";
+  };
 
   stylix.polarity = "dark";
 
