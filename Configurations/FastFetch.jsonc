@@ -1,0 +1,127 @@
+// Based on https://www.reddit.com/user/Satanichero/ config
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none",
+    "padding": {
+      "top": 1
+    }
+  },
+  "display": {
+    "separator": "",
+    "keyWidth": 15
+  },
+  "modules": [
+    {
+      "key": "╭───────────╮",
+      "type": "custom"
+    },
+    {
+      // Draw borders first to make colors of left and right border consistant
+      "key": "│           │\u001b[11D\u001b[31m user",
+      "type": "title",
+      "format": "{1}"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[32m󰇅 hname",
+      "type": "title",
+      "format": "{2}"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[33m󰅐 uptime",
+      "type": "uptime"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[34m󰟾 distro",
+      "type": "os"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[35m kernel",
+      "type": "kernel"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[36m󰇄 desktop",
+      "type": "de"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[31m term",
+      "type": "terminal"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[32m shell",
+      "type": "shell"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[33m󰍛 cpu",
+      "type": "cpu"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[34m󰍛 gpu",
+      "type": "gpu"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[35m  memory",
+      "type": "memory"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[36m  swap",
+      "type": "swap"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[31m󰉉 disk",
+      "type": "disk",
+      "folders": "/"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[32m󰩟 local",
+      "type": "localip",
+      "format": "{1} ({4})"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[33m󱦂 public",
+      "type": "publicip",
+      "format": "{1}"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[34m sysfont",
+      "type": "font"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[35m termfont",
+      "type": "terminalfont"
+    },
+    {
+      "key": "│           │\u001b[11D\u001b[36m colors",
+      "type": "colors",
+      "symbol": "circle"
+    },
+    {
+      "key": "╰───────────╯",
+      "type": "custom"
+    }
+  ]
+}
