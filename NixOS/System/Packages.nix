@@ -14,8 +14,6 @@
     bottom
     glances
     fastfetch
-    mangohud
-    goverlay
     gamemode
     plymouth
     vscodium

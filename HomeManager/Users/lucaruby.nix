@@ -13,6 +13,7 @@
     ../Modules/GnomeDconf.nix
     # ../Modules/Gtk.nix
     ../Modules/Kitty.nix
+    ../Modules/MangoHud.nix
     ../Modules/Spotify.nix
     ../Modules/SteamDLSpeedFix.nix
     ../Modules/Zsh.nix
