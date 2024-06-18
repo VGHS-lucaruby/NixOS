@@ -15,6 +15,8 @@
     glances
     fastfetch
     gamemode
+    wine
+    winetricks
     plymouth
     vscodium
     android-tools
