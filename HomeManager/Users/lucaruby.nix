@@ -31,10 +31,11 @@
       enableWidevine = true;
     })
     vivaldi-ffmpeg-codecs
+
     (prismlauncher.override { jdks = [ zulu zulu17 zulu8 ]; })
+
+    vesktop   
     lutris
-    vesktop
-    betterdiscordctl
     transmission-gtk
     hfsprogs
     krita
@@ -42,6 +43,10 @@
     heroic
     BeatSaberModManager
   ];
+
+  programs.vscode = {
+    enable = true;
+  };
 
   programs.obs-studio = {
     enable = true;
