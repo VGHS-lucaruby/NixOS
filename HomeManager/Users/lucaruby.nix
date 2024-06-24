@@ -34,6 +34,13 @@
 
     (prismlauncher.override { jdks = [ zulu zulu17 zulu8 ]; })
 
+    (retroarch.override {
+      cores = with libretro; [
+        desmume
+      ];
+    })
+    retroarch-joypad-autoconfig
+    
     vesktop   
     lutris
     transmission-gtk
