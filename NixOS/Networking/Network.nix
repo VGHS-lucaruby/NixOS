@@ -1,9 +1,10 @@
 { config, lib, ... }:
 
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    enableStrongSwan = true;
+  };
   
   networking.useDHCP = lib.mkDefault true;
-
-  networking.nameservers = [ "9.9.9.9" "1.1.1.1" ];
 }
