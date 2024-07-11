@@ -30,7 +30,7 @@
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { label = "NIXOS-SWAP"; }
-    ];
+  swapDevices = [ 
+    { label = "NIXOS-SWAP"; } 
+  ];
 }
