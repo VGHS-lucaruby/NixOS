@@ -28,6 +28,7 @@
   fileSystems."/boot" =
     { label = "NIXOS-BOOT";
       fsType = "vfat";
+      options = [ "umask=0077"];
     };
 
   swapDevices = [ 
