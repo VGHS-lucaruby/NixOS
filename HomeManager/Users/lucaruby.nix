@@ -42,7 +42,11 @@
     retroarch-joypad-autoconfig
     
     vesktop   
-    lutris
+    (lutris.override {
+       extraPkgs = pkgs: [
+         wineWowPackages.stagingFull
+       ];
+    })
     transmission-gtk
     hfsprogs
     krita

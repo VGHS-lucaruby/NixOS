@@ -15,7 +15,6 @@
     glances
     fastfetch
     gamemode
-    wine
     winetricks
     android-tools
   ];
