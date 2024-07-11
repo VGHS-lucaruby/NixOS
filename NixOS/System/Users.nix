@@ -4,6 +4,6 @@
   users.users.lucaruby = {
     isNormalUser = true;
     description = "Luca Crisafi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 }
