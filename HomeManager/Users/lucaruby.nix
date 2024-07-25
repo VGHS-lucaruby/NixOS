@@ -53,6 +53,9 @@
     inkscape
     heroic
     BeatSaberModManager
+    sops
+    rage
+    ssh-to-age
   ];
 
   programs.vscode = {
