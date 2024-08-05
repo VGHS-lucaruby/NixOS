@@ -1,6 +1,16 @@
 { config, pkgs, ...}:
 
 {
+  boot = {
+    kernelPatches = [ {
+      name = "edid-loader-fix-config";
+      patch = null;
+      extraConfig = ''
+        FW_LOADER y
+      '';
+    } ];	
+  };
+
   hardware.firmware = [
     (
       pkgs.runCommand "edid.bin" { } ''
