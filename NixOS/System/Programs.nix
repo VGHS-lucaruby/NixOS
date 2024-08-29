@@ -3,6 +3,8 @@
 {
   programs.steam.enable = true;
 
+  programs.adb.enable = true;
+
   programs.alvr = {
     enable = true;
     openFirewall = true;
