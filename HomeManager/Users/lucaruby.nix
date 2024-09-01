@@ -14,7 +14,7 @@
     # ../Modules/Gtk.nix
     ../Modules/Kitty.nix
     ../Modules/MangoHud.nix
-    ../Modules/Spotify.nix
+    # ../Modules/Spotify.nix
     ../Modules/SteamDLSpeedFix.nix
     ../Modules/Zsh.nix
   ];
@@ -56,6 +56,7 @@
     sops
     rage
     ssh-to-age
+    osu-lazer-bin
   ];
 
   programs.vscode = {
