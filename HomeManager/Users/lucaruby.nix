@@ -57,6 +57,8 @@
     rage
     ssh-to-age
     osu-lazer-bin
+    whatsapp-for-linux
+    nheko
   ];
 
   programs.vscode = {

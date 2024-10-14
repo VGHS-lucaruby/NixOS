@@ -16,5 +16,9 @@
     driSupport32Bit = true;
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
+
   hardware.xone.enable = true;
 }
