@@ -5,6 +5,11 @@
 
   programs.adb.enable = true;
 
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
+  
   programs.alvr = {
     enable = true;
     openFirewall = true;
