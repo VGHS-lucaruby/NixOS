@@ -9,6 +9,7 @@
     pciutils
     remmina
     vlc
+    mpv
     sl
     htop
     bottom

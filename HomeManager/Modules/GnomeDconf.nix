@@ -28,8 +28,9 @@
   
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       "org/gnome/desktop.peripherals/mouse".accel-profile = "flat";
+      "org.gnome.desktop.privacy".remember-recent-files = "false";
       "org/gnome/mutter" = {experimental-features = ["scale-monitor-framebuffer"];};
-      
+
       # Keybinds    
       "org/gnome/desktop/wm/keybindings" = {
         close = ["<Super>q"];

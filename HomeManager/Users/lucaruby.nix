@@ -46,18 +46,19 @@
          wineWowPackages.stagingFull
        ];
     })
-    transmission-gtk
+    firefox
     hfsprogs
     krita
     inkscape
     heroic
-    BeatSaberModManager
+    # BeatSaberModManager
     sops
     rage
     ssh-to-age
     osu-lazer-bin
     whatsapp-for-linux
     nheko
+    blender
   ];
 
   programs.vscode = {

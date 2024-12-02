@@ -5,20 +5,19 @@
 
   programs.adb.enable = true;
 
-  programs.corectrl = {
-    enable = true;
-    gpuOverclock.enable = true;
-  };
+  environment.systemPackages = with pkgs; [ lact ];
+  systemd.packages = with pkgs; [ lact ];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   
   programs.alvr = {
     enable = true;
     openFirewall = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -30,21 +29,21 @@
     inputs.spicetify-nix.nixosModules.default
   ];
 
-  programs.spicetify =
-  let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in
-  {
-    enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "Frappé";
-    enabledExtensions = with spicePkgs.extensions; [
-      shuffle
-      fullAlbumDate
-      history
-      autoSkip
-    ];
-  };
+  # programs.spicetify =
+  # let
+  #   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  # in
+  # {
+  #   enable = true;
+  #   theme = spicePkgs.themes.catppuccin;
+  #   colorScheme = "Frappé";
+  #   enabledExtensions = with spicePkgs.extensions; [
+  #     shuffle
+  #     fullAlbumDate
+  #     history
+  #     autoSkip
+  #   ];
+  # };
 
   hardware.xone.enable = true;
 }
