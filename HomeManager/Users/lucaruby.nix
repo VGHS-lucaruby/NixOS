@@ -7,7 +7,6 @@
   home.homeDirectory = "/home/lucaruby";
 
   imports = [
-    ../Modules/Alvr.nix
     # ../Modules/Cursor.nix
     ../Modules/FastFetch.nix
     ../Modules/GnomeDconf.nix
@@ -21,24 +20,14 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    (vivaldi.override {
-      commandLineArgs = [
-        "--enable-features=VaapiVideoDecodeLinuxGL"
-        "--ignore-gpu-blocklist"
-        "--enable-zero-copy"
-      ];
-      enableWidevine = true;
-    })
-    vivaldi-ffmpeg-codecs
-
     (prismlauncher.override { jdks = [ zulu zulu17 zulu8 ]; })
 
-    (retroarch.override {
-      cores = with libretro; [
-        desmume
-      ];
-    })
-    retroarch-joypad-autoconfig
+    # (retroarch.override {
+    #   cores = with libretro; [
+    #     desmume
+    #   ];
+    # })
+    # retroarch-joypad-autoconfig
     
     vesktop   
     (lutris.override {
@@ -46,12 +35,11 @@
          wineWowPackages.stagingFull
        ];
     })
-    firefox
     hfsprogs
     krita
     inkscape
     heroic
-    # BeatSaberModManager
+    BeatSaberModManager
     sops
     rage
     ssh-to-age

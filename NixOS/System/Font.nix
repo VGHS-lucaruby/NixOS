@@ -3,7 +3,7 @@
 {
   fonts.packages = with pkgs; [
     #corefonts
-    nerdfonts
+    nerd-fonts.meslo-lg
     noto-fonts
     noto-fonts-emoji
     ibm-plex

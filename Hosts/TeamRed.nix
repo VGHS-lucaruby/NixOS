@@ -5,7 +5,6 @@
   [
     # Hardware
     ../NixOS/Hardware/BootLoader.nix
-    # ../NixOS/Hardware/Edid.nix
     ../NixOS/Hardware/FileSystem.nix
     ../NixOS/Hardware/Firmware.nix
 

@@ -1,4 +1,6 @@
 # NixOS Dots (WIP)
+This is a mess of a config for my desktop. Requires a refactor.
+If you want to see a more sensible config check my servers config.
 
 ## Credits
 - **Theme** [Nord Theme](https://www.nordtheme.com)
