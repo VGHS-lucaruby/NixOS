@@ -23,5 +23,6 @@
     gamescope
     vivaldi-overlayed
     vivaldi-ffmpeg-codecs
+    pokemmo-installer
   ];
 }
