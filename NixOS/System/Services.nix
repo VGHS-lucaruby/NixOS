@@ -1,19 +1,56 @@
 { config, pkgs, ... }:
 
 {
-  services.printing.enable = true;
+  systemd.tmpfiles.rules = [ "d /var/lib/openwakeword/models 0777 wyoming-openwakeword wyoming-openwakeword - -" ];
+  services = {
+    printing.enable = true;
 
-  services.btrfs.autoScrub.enable = true;
-  services.btrfs.autoScrub.interval = "weekly";
+    btrfs.autoScrub.enable = true;
+    btrfs.autoScrub.interval = "weekly";
 
-  services.gvfs.enable = true;
+    gvfs.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
 
-  services.teamviewer.enable = true;
+    teamviewer.enable = true;
 
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
+    };
+
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      rocmOverrideGfx = "11.0.0";
+      host = "0.0.0.0";
+      loadModels = [ "deepseek-r1:1.5b" "deepseek-r1:7b" "thirdeyeai/DeepSeek-R1-Distill-Qwen-7B-uncensored" "MFDoom/deepseek-r1-tool-calling:1.5b" "llama3.2" "llama3.3" ];
+    };
+    
+    open-webui.enable = true;
+
+    wyoming = {
+      piper.servers."PiperMain" = {
+        enable = true;
+        uri = "tcp://0.0.0.0:10200";
+        voice = "en_GB-jenny_dioco-medium";
+      };
+      openwakeword = {
+        enable = true;
+        customModelsDirectories = [ "/var/lib/openwakeword/models" ];
+        preloadModels = [
+          "ok_nabu"
+        ];
+      };
+      faster-whisper.servers."WhisperMain" = {
+        enable = true;
+        language = "auto";
+        model = "tiny-int8";
+        uri = "tcp://0.0.0.0:10300";
+        # initialPrompt = ''
+        #   dfgsfouhdsoifhois
+        # '';
+      };
+    };    
   };
 }

@@ -21,6 +21,7 @@
     ../NixOS/System/GeneralSettings.nix
     # ../NixOS/System/Howdy.nix
     ../NixOS/System/NixSettings.nix
+    ../NixOS/System/Overlays.nix
     ../NixOS/System/Packages.nix
     ../NixOS/System/PackageSettings.nix
     ../NixOS/System/Pipewire.nix

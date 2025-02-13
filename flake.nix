@@ -2,7 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
 
     spicetify-nix = {
@@ -21,13 +22,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, nixpkgs-stable, ... } @inputs:
   let
     system = "x86_64-linux";
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
   in
   {
     nixosConfigurations.IdeaPad = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; inherit pkgs-stable;};
       modules = [ 
         ./Hosts/IdeaPad.nix
         inputs.stylix.nixosModules.stylix
@@ -36,7 +38,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = inputs;
+            extraSpecialArgs = {inherit inputs; inherit pkgs-stable;};
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;
@@ -46,7 +48,7 @@
       ];
     };
     nixosConfigurations.TeamRed = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; inherit pkgs-stable;};
       modules = [ 
         ./Hosts/TeamRed.nix
         inputs.stylix.nixosModules.stylix
@@ -55,7 +57,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = inputs;
+            extraSpecialArgs = {inherit inputs; inherit pkgs-stable;};
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;

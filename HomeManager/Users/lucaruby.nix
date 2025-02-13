@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -19,8 +19,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    (prismlauncher.override { jdks = [ zulu zulu17 zulu8 ]; })
+  home.packages = (with pkgs; [
+    prism-overlayed
 
     # (retroarch.override {
     #   cores = with libretro; [
@@ -30,11 +30,7 @@
     # retroarch-joypad-autoconfig
     
     vesktop   
-    (lutris.override {
-       extraPkgs = pkgs: [
-         wineWowPackages.stagingFull
-       ];
-    })
+    lutris-overlayed
     hfsprogs
     krita
     inkscape
@@ -47,7 +43,12 @@
     whatsapp-for-linux
     nheko
     blender
-  ];
+    qbittorrent
+    onlyoffice-bin
+    ciscoPacketTracer8
+  ]) ++ (with pkgs-stable; [
+    gns3-gui
+  ]);
 
   programs.vscode = {
     enable = true;

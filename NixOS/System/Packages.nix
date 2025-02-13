@@ -8,6 +8,7 @@
     iperf
     wget
     pciutils
+    inetutils
     remmina
     vlc
     mpv
@@ -20,16 +21,7 @@
     winetricks
     android-tools
     gamescope
-    (vivaldi.override {
-      commandLineArgs = [
-        "--use-gl=angle" 
-        "--use-angle=vulkan" 
-        "--enable-features=AcceleratedVideoEncoder,VaapiOnNvidiaGPUs,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE" 
-        "--ignore-gpu-blocklist" 
-        "--disable-gpu-driver-bug-workaround"
-      ];
-      enableWidevine = true;
-    })
+    vivaldi-overlayed
     vivaldi-ffmpeg-codecs
   ];
 }
