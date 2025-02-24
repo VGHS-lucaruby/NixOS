@@ -24,7 +24,16 @@
       acceleration = "rocm";
       rocmOverrideGfx = "11.0.0";
       host = "0.0.0.0";
-      loadModels = [ "deepseek-r1:1.5b" "deepseek-r1:7b" "thirdeyeai/DeepSeek-R1-Distill-Qwen-7B-uncensored" "MFDoom/deepseek-r1-tool-calling:1.5b" "llama3.2" "llama3.3" ];
+      # environmentVariables = {
+      #   OLLAMA_DEBUG = "1";
+      # };
+      loadModels = [ 
+        "llama3.1"
+        "llama3.2"
+        "deepseek-r1:1.5b"
+        "deepseek-r1:7b"
+        "rns96/deepseek-R1-ablated:f32_Q80"
+      ];
     };
     
     open-webui.enable = true;
@@ -45,11 +54,8 @@
       faster-whisper.servers."WhisperMain" = {
         enable = true;
         language = "auto";
-        model = "tiny-int8";
+        model = "small-int8";
         uri = "tcp://0.0.0.0:10300";
-        # initialPrompt = ''
-        #   dfgsfouhdsoifhois
-        # '';
       };
     };    
   };

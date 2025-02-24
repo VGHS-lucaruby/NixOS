@@ -3,35 +3,12 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "lucaruby";
-  home.homeDirectory = "/home/lucaruby";
+  home.username = "kuma";
+  home.homeDirectory = "/home/kuma";
 
   imports = [
     ../Modules
   ];
-
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = (with pkgs; [
-    ciscoPacketTracer8
-  ]) ++ (with pkgs-stable; [
-    vesktop   
-    onlyoffice-bin
-    gns3-gui
-  ]);
-
-  programs.vscode = {
-    enable = true;
-  };
-  stylix.targets.vscode.enable = false;
-
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-pipewire-audio-capture
-    ];
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

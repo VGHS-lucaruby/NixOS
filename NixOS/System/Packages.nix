@@ -14,7 +14,7 @@
     mpv
     sl
     htop
-    bottom
+    btop-rocm
     glances
     fastfetch
     gamemode
@@ -24,5 +24,20 @@
     vivaldi-overlayed
     vivaldi-ffmpeg-codecs
     pokemmo-installer
+    prism-overlayed    
+    lutris-overlayed
+    hfsprogs
+    krita
+    inkscape
+    heroic
+    BeatSaberModManager
+    sops
+    rage
+    ssh-to-age
+    osu-lazer-bin
+    whatsapp-for-linux
+    nheko
+    blender
+    qbittorrent
   ];
 }

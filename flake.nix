@@ -42,6 +42,7 @@
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;
+              kuma = import ./HomeManager/Users/kuma.nix;
             };
           };
         }
@@ -61,6 +62,7 @@
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;
+              kuma = import ./HomeManager/Users/kuma.nix;
             };
           };
         }

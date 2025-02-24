@@ -1,9 +1,13 @@
 { config, ... }:
 
 {
-  users.users.lucaruby = {
-    isNormalUser = true;
-    description = "Luca Crisafi";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+  users.users = {
+    lucaruby = {
+      isNormalUser = true;
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    };
+    kuma = {
+      isNormalUser = true;
+    };
   };
 }
