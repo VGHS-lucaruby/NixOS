@@ -3,7 +3,6 @@
 {
   imports = [
     # ../Modules/Cursor.nix
-    ../Modules/FastFetch.nix
     ../Modules/GnomeDconf.nix
     # ../Modules/Gtk.nix
     ../Modules/Kitty.nix

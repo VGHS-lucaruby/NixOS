@@ -30,7 +30,7 @@
     krita
     inkscape
     heroic
-    BeatSaberModManager
+    bs-manager
     sops
     rage
     ssh-to-age
@@ -39,5 +39,8 @@
     nheko
     blender
     qbittorrent
+    scrcpy
+    go
+    gcc
   ];
 }

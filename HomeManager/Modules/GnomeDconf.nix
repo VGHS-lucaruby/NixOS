@@ -5,7 +5,6 @@
     dash-to-dock
     xwayland-indicator
     net-speed
-    spotify-tray
   ];
 
   dconf = {
@@ -22,7 +21,6 @@
           dash-to-dock.extensionUuid
           xwayland-indicator.extensionUuid
           net-speed.extensionUuid
-          spotify-tray.extensionUuid
         ];
       };
   

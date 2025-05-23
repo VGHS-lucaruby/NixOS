@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   programs = {
@@ -6,16 +6,14 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      initExtraFirst = "fastfetch";
+      initContent = "fastfetch";
       shellAliases = {
         ls = "ls --color=auto";
         grep = "grep --color";
         clr = "clear";
         updflake = "sudo nix flake update ~/.BuildFiles/NixOS";
-        updlaptop = "sudo nixos-rebuild switch --flake ~/.BuildFiles/NixOS/#IdeaPad";
-        updblaptop = "sudo nixos-rebuild boot --flake ~/.BuildFiles/NixOS/#IdeaPad";
-        upddesktop = "sudo nixos-rebuild switch --flake ~/.BuildFiles/NixOS/#TeamRed";
-        updbdesktop = "sudo nixos-rebuild boot --flake ~/.BuildFiles/NixOS/#TeamRed";
+        upd = "sudo nixos-rebuild switch --flake ~/.BuildFiles/NixOS/";
+        updb = "sudo nixos-rebuild boot --flake ~/.BuildFiles/NixOS/";
       };
       oh-my-zsh = {
         enable = true;
@@ -26,5 +24,9 @@
         ];
       };
     };
+  };
+  home.file.fastfetch_config = {
+    target = "${config.home.homeDirectory}/.config/fastfetch/config.jsonc";
+    source = ../../Configurations/FastFetch.jsonc;
   };
 }

@@ -8,6 +8,7 @@
     };
     kuma = {
       isNormalUser = true;
+      extraGroups = [ "networkmanager" "wheel" ];
     };
   };
 }

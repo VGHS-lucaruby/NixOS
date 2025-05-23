@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -12,13 +12,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = (with pkgs; [
-    ciscoPacketTracer8
-  ]) ++ (with pkgs-stable; [
+  home.packages = with pkgs; [
     vesktop   
     onlyoffice-bin
     gns3-gui
-  ]);
+  ];
 
   programs.vscode = {
     enable = true;
