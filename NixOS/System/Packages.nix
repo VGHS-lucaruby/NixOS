@@ -22,7 +22,6 @@
     android-tools
     gamescope
     vivaldi-overlayed
-    vivaldi-ffmpeg-codecs
     pokemmo-installer
     prism-overlayed    
     lutris-overlayed

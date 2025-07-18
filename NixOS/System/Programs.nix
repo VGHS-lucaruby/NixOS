@@ -40,8 +40,7 @@
     "olm-3.2.16" # nehko
   ];
 
-  hardware.xone.enable = true;
+  # hardware.xone.enable = true;
 
   programs.evolution.enable = true;
-
 }
