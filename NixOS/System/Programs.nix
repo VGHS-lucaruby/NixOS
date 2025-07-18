@@ -43,4 +43,12 @@
   # hardware.xone.enable = true;
 
   programs.evolution.enable = true;
+
+  programs.ssh = {
+    extraConfig = ''
+    Host *
+      SetEnv TERM=xterm-256color
+    '';
+  };
+
 }

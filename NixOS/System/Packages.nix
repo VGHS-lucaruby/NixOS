@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, pkgs-unstable, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = ( with pkgs; [
     vulkan-tools
     glxinfo
     git
@@ -21,8 +21,9 @@
     winetricks
     android-tools
     gamescope
-    vivaldi-overlayed
     pokemmo-installer
+    vivaldi-overlayed
+    vivaldi-ffmpeg-codecs
     prism-overlayed    
     lutris-overlayed
     hfsprogs
@@ -41,5 +42,17 @@
     scrcpy
     go
     gcc
-  ];
+    telegram-desktop
+    nix-output-monitor
+    age
+    qrencode
+    libreoffice
+    foliate
+  ]) ++ ( with pkgs-unstable; [
+    wineWowPackages.stagingFull
+    ryubing
+    cemu
+    vesktop
+    firefox
+  ]);
 }

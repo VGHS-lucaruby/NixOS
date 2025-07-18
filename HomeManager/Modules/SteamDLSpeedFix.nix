@@ -2,7 +2,7 @@
 
 {
   home.file.steam_downloadfix = {
-   target = "${config.home.homeDirectory}/.steam/steam/steam_dev.cfg";
+   target = "${config.home.homeDirectory}/.local/share/Steam/steam_dev.cfg";
    source = ../../Configurations/SteamDLSpeedFix.cfg;
   };
 }

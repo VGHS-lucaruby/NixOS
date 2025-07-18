@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
 
     stylix = {
@@ -16,13 +19,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... } @inputs:
   let
     system = "x86_64-linux";
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in
   {
     nixosConfigurations.NixOS-IdeaPad = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; inherit pkgs-unstable;};
       modules = [ 
         ./Hosts/NixOS-IdeaPad.nix
         inputs.stylix.nixosModules.stylix
@@ -31,7 +35,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {inherit inputs;};
+            extraSpecialArgs = {inherit inputs; inherit pkgs-unstable;};
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;
@@ -42,7 +46,7 @@
       ];
     };
     nixosConfigurations.NixOS-TeamRed = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; inherit pkgs-unstable;};
       modules = [ 
         ./Hosts/NixOS-TeamRed.nix
         inputs.stylix.nixosModules.stylix
@@ -51,7 +55,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {inherit inputs;};
+            extraSpecialArgs = {inherit inputs; inherit pkgs-unstable;};
             backupFileExtension = "HomeManagerBackup";
             users = {
               lucaruby = import ./HomeManager/Users/lucaruby.nix;
