@@ -23,7 +23,6 @@
     gamescope
     pokemmo-installer
     vivaldi-overlayed
-    vivaldi-ffmpeg-codecs
     prism-overlayed    
     lutris-overlayed
     hfsprogs
@@ -53,6 +52,5 @@
     ryubing
     cemu
     vesktop
-    firefox
   ]);
 }

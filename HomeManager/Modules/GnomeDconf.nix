@@ -79,8 +79,8 @@
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         binding = "<Super>b";
-        command = "vivaldi";
-        name = "Open Vivaldi";
+        command = "firefox";
+        name = "Open Firefox";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         binding = "<Super>e";

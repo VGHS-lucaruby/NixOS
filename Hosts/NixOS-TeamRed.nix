@@ -17,6 +17,7 @@
     ../NixOS/Networking/Network.nix
 
     # System
+    ../NixOS/System/Firefox.nix
     ../NixOS/System/Font.nix
     ../NixOS/System/GeneralSettings.nix
     # ../NixOS/System/Howdy.nix
