@@ -20,7 +20,7 @@
     ../NixOS/System/Firefox.nix
     ../NixOS/System/Font.nix
     ../NixOS/System/GeneralSettings.nix
-    #../NixOS/System/Howdy.nix
+    ../NixOS/System/Howdy.nix
     ../NixOS/System/NixSettings.nix
     ../NixOS/System/Overlays.nix
     ../NixOS/System/Packages.nix

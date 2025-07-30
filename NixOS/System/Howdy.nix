@@ -17,7 +17,7 @@
       };
     };
 
-    # in case your IR blaster does not blink, run `sudo linux-enable-ir-emitter configure`
+    # https://github.com/EmixamPP/linux-enable-ir-emitter/issues/228    
     linux-enable-ir-emitter = {
       enable = true;
       package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;

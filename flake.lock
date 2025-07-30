@@ -176,11 +176,11 @@
     },
     "nixpkgs-howdy": {
       "locked": {
-        "lastModified": 1748432150,
-        "narHash": "sha256-DXn05voIPT1wsCj6Eyz9aGQpMy4ZrBbLLvUW12ETiYo=",
+        "lastModified": 1753734290,
+        "narHash": "sha256-E4MDOM0ZXs5qeGta6QMHvAWFcT7rBQbceJjoHabduoI=",
         "owner": "fufexan",
         "repo": "nixpkgs",
-        "rev": "db31088cf11ff7e244a61381981135b6e3814f3e",
+        "rev": "943b3b975f86ddc22cec788e0fc20acc1303022f",
         "type": "github"
       },
       "original": {
