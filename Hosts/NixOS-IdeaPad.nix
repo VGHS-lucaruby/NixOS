@@ -3,40 +3,14 @@
 {
   imports =
   [
-    # Hardware
-    ../NixOS/Hardware/BootLoader.nix
-    ../NixOS/Hardware/FileSystem.nix
-    ../NixOS/Hardware/Firmware.nix
-
-    ../NixOS/Hardware/Luks-IdeaPad.nix
-    # ../NixOS/Hardware/Luks-TeamRed.nix
-    ../NixOS/Hardware/Modules.nix
-
-    # Networking
-    ../NixOS/Networking/Firewall.nix
-    ../NixOS/Networking/Network.nix
-
-    # System
-    ../NixOS/System/Firefox.nix
-    ../NixOS/System/Font.nix
-    ../NixOS/System/GeneralSettings.nix
+    ../NixOS
     ../NixOS/System/Howdy.nix
-    ../NixOS/System/NixSettings.nix
-    ../NixOS/System/Overlays.nix
-    ../NixOS/System/Packages.nix
-    ../NixOS/System/PackageSettings.nix
-    ../NixOS/System/Pipewire.nix
-    ../NixOS/System/Plymouth.nix
-    ../NixOS/System/Programs.nix
-    ../NixOS/System/Services.nix
-    ../NixOS/System/Stylix.nix
-    ../NixOS/System/Users.nix
-    ../NixOS/System/Virtualization.nix
-    ../NixOS/System/Zsh.nix
-    
     # Desktop Enviroment
     ../NixOS/Desktop/Gnome.nix
   ];
+
+  boot.initrd.luks.devices."luks-1da6ce39-dd24-49c7-bc57-10b534891832".device = "/dev/disk/by-uuid/1da6ce39-dd24-49c7-bc57-10b534891832";
+  boot.initrd.luks.devices."luks-f437b704-2bb3-464b-b462-722a4ae5cf36".device = "/dev/disk/by-uuid/f437b704-2bb3-464b-b462-722a4ae5cf36";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
