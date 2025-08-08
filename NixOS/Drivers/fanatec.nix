@@ -9,7 +9,7 @@ in
   options.hardware.fanatec = {
     enable = lib.mkOption {
       type = with lib.types; bool;
-      default = false;
+      default = true;
       description = "Enable Fanatec Wheel support";
     };
   };

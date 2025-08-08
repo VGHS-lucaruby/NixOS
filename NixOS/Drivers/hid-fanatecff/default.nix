@@ -2,18 +2,18 @@
 
 let
   moduledir = "lib/modules/${kernel.modDirVersion}/kernel/drivers/hid";
-  name = "hid-fanatecff";
-  version = "0.2.1";
+  strName = "hid-fanatecff";
+  strVersion = "0.2.1";
 in 
 stdenv.mkDerivation rec {
-  pname = name;
-  version = version;
-  name = "${name}-${version}-${kernel.modDirVersion}";
+  pname = strName;
+  version = strVersion;
+  name = "${strName}-${strVersion}-${kernel.modDirVersion}";
 
   src = fetchFromGitHub {
     owner = "gotzl";
-    repo = name;
-    rev = version;
+    repo = strName;
+    rev = strVersion;
     sha256 = "1bgs19c10wbkld4cjfcpkn8cd7m3n13288jyq6n1h7dikkrfcs1k";
   };
 
