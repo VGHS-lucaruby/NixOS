@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
   programs.steam = {
@@ -19,6 +19,7 @@
   programs.alvr = {
     enable = true;
     openFirewall = true;
+    package = pkgs-unstable.alvr;
   };
 
   hardware.graphics = {
