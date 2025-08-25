@@ -51,6 +51,8 @@
 
   programs.evolution.enable = true;
 
+  programs.gamescope.enable = true;
+
   programs.ssh = {
     extraConfig = ''
     Host *

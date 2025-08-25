@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, pkgs-unstable, ... }:
+{ inputs, config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   environment.systemPackages = ( with pkgs; [
@@ -35,7 +35,6 @@
     ssh-to-age
     osu-lazer-bin
     whatsapp-for-linux
-    nheko
     blender
     qbittorrent
     scrcpy
