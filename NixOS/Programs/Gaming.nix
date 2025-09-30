@@ -14,11 +14,6 @@
     package = pkgs-unstable.alvr;
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   programs.gamescope.enable = true;
 
 }

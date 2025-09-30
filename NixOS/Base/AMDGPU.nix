@@ -1,10 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   environment.systemPackages = with pkgs; [ lact ];
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];
   boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 
   #     name = "amdgpu-ignore-ctx-privileges";
   #     patch = pkgs.fetchpatch {
