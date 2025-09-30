@@ -7,11 +7,6 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
-
-    stylix = {
-      url = "github:danth/stylix/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -20,50 +15,38 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... } @inputs:
-  let
-    system = "x86_64-linux";
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-  in
-  {
-    nixosConfigurations.NixOS-IdeaPad = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs; inherit pkgs-unstable;};
-      modules = [ 
-        ./Hosts/NixOS-IdeaPad.nix
-        inputs.stylix.nixosModules.stylix
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
+    {
+      nixosConfigurations = nixpkgs.lib.foldl' (
+        configs: hostname:
+        configs
+        // {
+          "${hostname}" = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs hostname pkgs-unstable; };
+            modules = [
+              ./NixOS
+              ./Hosts/${hostname}/Config.nix
 
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {inherit inputs; inherit pkgs-unstable;};
-            backupFileExtension = "HomeManagerBackup";
-            users = {
-              lucaruby = import ./HomeManager/Users/lucaruby.nix;
-              kuma = import ./HomeManager/Users/kuma.nix;
-            };
+              home-manager.nixosModules.home-manager {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  extraSpecialArgs = { inherit inputs hostname pkgs-unstable; };
+                  backupFileExtension = "HomeManagerBackup";
+                  sharedModules = [./NixOS/HomeManager];
+                  # todo: Make import based on users directory. 
+                  users = {
+                    lucaruby = import ./NixOS/Users/lucaruby.nix;
+                  };
+                };
+              }
+            ];
           };
         }
-      ];
+      ) 
+      {} (nixpkgs.lib.attrsets.mapAttrsToList (name: value: name) (builtins.readDir ./Hosts));
     };
-    nixosConfigurations.NixOS-TeamRed = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs; inherit pkgs-unstable;};
-      modules = [ 
-        ./Hosts/NixOS-TeamRed.nix
-        inputs.stylix.nixosModules.stylix
-
-        home-manager.nixosModules.home-manager {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {inherit inputs; inherit pkgs-unstable;};
-            backupFileExtension = "HomeManagerBackup";
-            users = {
-              lucaruby = import ./HomeManager/Users/lucaruby.nix;
-              kuma = import ./HomeManager/Users/kuma.nix;
-            };
-          };
-        }
-      ];
-    };
-  };
 }

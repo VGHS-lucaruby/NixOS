@@ -3,9 +3,10 @@
 {
   imports =
   [
+    ./Base
+    ./Desktops
     ./Drivers
-    ./Hardware
-    ./Networking
-    ./System
+    ./Programs
+    ./Users
   ];
 }
