@@ -7,6 +7,11 @@
     	name = "Nordic";
       package = pkgs.nordic;
     };
+    cursorTheme = {
+      name = "Nordzy-cursors-white";
+      package = pkgs.nordzy-cursor-theme;
+      size = 24;
+    };
     iconTheme = {
         name = "Nordzy";
         package = pkgs.nordzy-icon-theme;

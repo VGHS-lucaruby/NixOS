@@ -1,0 +1,24 @@
+* {
+  margin: 2pt;
+  border-radius: 5pt;
+  min-height: 10pt;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+.modules-left, .modules-center, .modules-right {
+  padding: 2pt;
+  background-color: @theme_bg_color;
+}
+
+.modules-center, .modules-right {
+  padding-left: 10pt;
+  padding-right: 10pt;
+}
+
+#workspaces button.active {
+  color: @theme_selected_fg_color;
+  background-color: @theme_selected_bg_color;
+}

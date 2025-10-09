@@ -1,22 +1,23 @@
-{config, pkgs, ...}: 
+{config, lib, pkgs, ...}: 
 
 {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;     
+  config = lib.mkIf (config.modDesktop.name == "Hyprland") {
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;     
+    };
+
+    environment.systemPackages = with pkgs; [
+      wayland-protocols
+      wayland-utils
+      wl-clipboard
+      wlroots
+      rofi
+    ];
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    };
   };
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.xkb.layout = "gb";
-
-  environment.systemPackages = with pkgs; [
-    wayland-protocols
-    wayland-utils
-    wl-clipboard
-    wlroots
-  ];
-
-  # Hint Electon apps to use wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

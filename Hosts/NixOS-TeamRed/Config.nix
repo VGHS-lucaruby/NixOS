@@ -8,7 +8,10 @@
 
   networking.hostName = "NixOS-TeamRed";
 
-  modDesktop.name = "Gnome";
+  modDesktop = {
+    name = "Hyprland";
+    display = "DP-1, 2560x1440@144, 0x0, 1";
+  };
 
   nixpkgs.hostPlatform = "x86_64-linux";
   

@@ -1,8 +1,7 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
-    ./Hyprland.nix
     ./Waybar.nix
   ];
 }

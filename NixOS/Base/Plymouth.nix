@@ -1,7 +1,14 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
-  boot.kernelParams = ["quiet"];
-  boot.plymouth.enable = true;
-  boot.plymouth.theme="breeze";
+  boot = {
+    kernelParams = ["quiet"];
+    plymouth = {
+      enable = true;
+      theme = "blahaj";
+      themePackages = with pkgs; [
+        plymouth-blahaj-theme
+      ];
+    };
+  };
 }

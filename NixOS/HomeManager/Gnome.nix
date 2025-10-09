@@ -11,11 +11,6 @@
     dconf = {
       enable = true;
       settings = {
-        "org/virt-manager/virt-manager/connections" = {
-          autoconnect = ["qemu:///system"];
-          uris = ["qemu:///system"];
-        };
-
         "org/gnome/shell" = {
           disable-user-extensions = false;
           enabled-extensions = with pkgs.gnomeExtensions; [
@@ -25,9 +20,7 @@
           ];
         };
 
-        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
         "org/gnome/desktop.peripherals/mouse".accel-profile = "flat";
-        "org.gnome.desktop.privacy".remember-recent-files = "false";
         "org/gnome/mutter" = {experimental-features = ["scale-monitor-framebuffer"];};
 
         # Keybinds    
@@ -90,8 +83,8 @@
         };
         "org/gnome/desktop/background" = {
           color-shading-type = "solid";
-          picture-uri = "file://${config.modDesktop.background}";
-          picture-uri-dark = "file://${config.modDesktop.background}";
+          picture-uri = "file://${config.modDesktopUser.background}";
+          picture-uri-dark = "file://${config.modDesktopUser.background}";
         };
       };
     };

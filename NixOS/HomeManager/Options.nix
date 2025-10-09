@@ -2,7 +2,7 @@
 
 {
   options = with lib; {
-    modDesktop.background = mkOption {
+    modDesktopUser.background = mkOption {
       type = with types; uniq path;
       description = "Path to Desktop Background Image"; 
     };

@@ -1,4 +1,4 @@
-{ config, osConfig, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -6,7 +6,7 @@
   home.username = "lucaruby";
   home.homeDirectory = "/home/lucaruby";
 
-  modDesktop.background = pkgs.fetchurl {
+  modDesktopUser.background = pkgs.fetchurl {
     url = "https://live.staticflickr.com/65535/52753759673_1df3284e8b_o_d.jpg";
     sha256 = "2f9d4387db6d7b598170eacfe6a6ee59486feb5fa3411bacab39ff02996c47bc";
   };
