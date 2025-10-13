@@ -9,6 +9,7 @@
     ./Hyprland
     ./Kitty.nix
     ./MangoHud.nix
+    ./Media.nix
     ./Options.nix
     ./SteamDLSpeedFix.nix
     ./Zsh.nix

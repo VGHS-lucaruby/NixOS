@@ -15,6 +15,7 @@
         ls = "ls --color=auto";
         grep = "grep --color";
         clr = "clear";
+        start = "exec uwsm start default";
         updflake = "sudo nix flake update ~/.BuildFiles/NixOS";
         upd = "sudo nixos-rebuild switch --flake ~/.BuildFiles/NixOS/";
         updb = "sudo nixos-rebuild boot --flake ~/.BuildFiles/NixOS/";

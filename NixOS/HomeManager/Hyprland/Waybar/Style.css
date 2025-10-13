@@ -1,24 +1,130 @@
+/*
+You can type here any CSS rule recognised by GTK.
+You can temporarily disable this custom CSS by clicking on the “Pause” button above.
+
+Changes are applied instantly and globally, for the whole application.
+*/
+
 * {
-  margin: 2pt;
-  border-radius: 5pt;
-  min-height: 10pt;
+    font-size: 12pt;
+    border: none;
+    border-radius: 3pt;
+    color: @theme_fg_color;
+    font-family: IBM Plex mono medium, Symbols Nerd Font;
 }
 
 window#waybar {
-  background-color: transparent;
+    border-bottom: 0pt;
+    background-color: transparent;
 }
 
-.modules-left, .modules-center, .modules-right {
-  padding: 2pt;
-  background-color: @theme_bg_color;
+.modules-right {
+    margin: 3pt 3pt 0 0;
+}
+.modules-center {
+    margin: 3pt 0 0 0;
+}
+.modules-left {
+    margin: 3pt 0 0 3pt;
 }
 
-.modules-center, .modules-right {
-  padding-left: 10pt;
-  padding-right: 10pt;
+#workspaces button {
+    padding: 0pt 5pt;
+    margin: 0pt 2pt;
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+#workspaces button:hover {
+    color: @theme_selected_bg_color;
 }
 
 #workspaces button.active {
-  color: @theme_selected_fg_color;
-  background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+    background-color: @theme_selected_bg_color;
+}
+
+#clock,
+#cpu,
+#memory,
+#wireplumber,
+#tray,
+#disk,
+#idle_inhibitor,
+#battery,
+#mpris,
+#bluetooth {
+    padding: 3pt 10pt;
+}
+
+#clock {
+    background-color: @theme_bg_color;
+}
+
+#cpu {
+    background-color: @STRAWBERRY_300;
+}
+
+#memory {
+    background-color: @ORANGE_300;
+}
+
+#wireplumber {
+    background-color: @BUBBLEGUM_300;
+}
+
+#wireplumber.muted {
+    background-color: @error_color;
+}
+
+#tray {
+    background-color: @COCOA_300;
+}
+
+#disk {
+    background-color: @SLATE_300;
+}
+
+#idle_inhibitor {
+    background-color: @BLACK_300;
+}
+
+#idle_inhibitor.activated {
+    background-color: @theme_selected_bg_color;
+}
+
+#mpris {
+    background-color: @MINT_700;
+}
+
+#bluetooth {
+    background-color: @GRAPE_500;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+    background-color: @BLACK_300;
+}
+
+#battery {
+    background-color: @BLUEBERRY_500;
+}
+
+#battery.charging {
+    background-color: @MINT_700;
+}
+
+@keyframes blink {
+    to {
+        background-color: @theme_bg_color;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: @warning_color;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }

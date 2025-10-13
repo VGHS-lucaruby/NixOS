@@ -2,9 +2,11 @@
 
 {
   config = lib.mkIf (config.modDesktop.name == "Hyprland") {
-    programs.hyprland = {
-      enable = true;
-      withUWSM = true;     
+    programs = {
+      hyprland = {
+        enable = true;     
+      };
+      nm-applet.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -12,7 +14,7 @@
       wayland-utils
       wl-clipboard
       wlroots
-      rofi
+      overskride
     ];
 
     xdg.portal = {

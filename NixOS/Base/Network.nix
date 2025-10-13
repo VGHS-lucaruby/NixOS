@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, hostname, ... }:
 
 {
   networking = {
@@ -7,7 +7,7 @@
       enableStrongSwan = true;
     };
     useDHCP = lib.mkDefault true;
-
+    hostName = hostname;
     firewall.enable = false;
   };
 

@@ -7,8 +7,8 @@
   home.homeDirectory = "/home/lucaruby";
 
   modDesktopUser.background = pkgs.fetchurl {
-    url = "https://live.staticflickr.com/65535/52753759673_1df3284e8b_o_d.jpg";
-    sha256 = "2f9d4387db6d7b598170eacfe6a6ee59486feb5fa3411bacab39ff02996c47bc";
+    url = "https://pbs.twimg.com/media/Gzdw3ZCW4AE_T_k?format=jpg&name=4096x4096";
+    sha256 = "sha256-9neGXTNPaiLJ5+J+qkgZLpHoccVmdFPXpW492ypLJ/A=";
   };
 
   programs.vscode = {

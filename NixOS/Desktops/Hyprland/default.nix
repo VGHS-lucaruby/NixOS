@@ -3,6 +3,5 @@
 {
   imports = [
     ./Hyprland.nix
-    ./Waybar.nix
   ];
 }

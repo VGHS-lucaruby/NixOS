@@ -13,6 +13,13 @@ in
       settings = {
         monitor = displaySettings;
 
+        exec-once = [
+          "vesktop"
+          "firefox"
+          "evolution"
+          "steam"
+        ];
+
         input = {
 	        kb_layout = "gb";
 	        numlock_by_default = true;
@@ -24,6 +31,11 @@ in
           workspace_swipe_forever = true;
         };
         
+        general = {
+          gaps_out = 5;
+          gaps_in = 3;
+        };
+
         decoration = {
           rounding = 5;
           rounding_power = 3;

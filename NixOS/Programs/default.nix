@@ -1,7 +1,6 @@
 { config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
-
   imports = [
     ./Packages
     ./Firefox.nix

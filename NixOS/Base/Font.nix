@@ -13,9 +13,9 @@
   fonts.fontconfig = { 
     enable = true; 
     defaultFonts = {
-      serif = [ "IBM Plex Serif" ];
-      sansSerif = [ "IBM Plex Sans" ];
-      monospace = [ "IBM Plex Mono" ];
+      serif = [ "IBM Plex Serif" "Symbols Nerd Font" ];
+      sansSerif = [ "IBM Plex Sans" "Symbols Nerd Font" ];
+      monospace = [ "IBM Plex Mono" "Symbols Nerd Font" ];
     };
   };
 }

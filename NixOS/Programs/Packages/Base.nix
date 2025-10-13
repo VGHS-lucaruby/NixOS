@@ -11,7 +11,6 @@
     inetutils
     remmina
     vlc
-    mpv
     sl
     htop
     btop-rocm

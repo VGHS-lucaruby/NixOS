@@ -2,6 +2,7 @@
 
 {
   options = with lib; {
+    modFingerprint.enable = mkEnableOption "Enable Lenovo Fingerprint Reader";
     modDesktop.name = mkOption {
       type = with types; uniq str;
       description = "Name Of Desktop You Want Activated"; 

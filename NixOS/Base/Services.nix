@@ -4,6 +4,6 @@
   services = {
     printing.enable = true;
     gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
+    playerctld.enable = true;
   };
 }
