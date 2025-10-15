@@ -4,7 +4,7 @@
   users.users = {
     lucaruby = {
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "tss" ];
     };
   };
 }

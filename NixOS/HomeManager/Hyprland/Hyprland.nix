@@ -24,6 +24,9 @@ in
 	        kb_layout = "gb";
 	        numlock_by_default = true;
 	        accel_profile = "flat";
+          touchpad = {
+            natural_scroll = true;
+          };
 	      };
         
         gestures = {

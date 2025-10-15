@@ -8,6 +8,11 @@
 
     nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, vicinae, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, vicinae, ... } @inputs:
     let
       system = "x86_64-linux";
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
@@ -34,6 +39,7 @@
             modules = [
               ./NixOS
               ./Hosts/${hostname}/Config.nix
+              lanzaboote.nixosModules.lanzaboote
 
               home-manager.nixosModules.home-manager {
                 home-manager = {

@@ -4,6 +4,7 @@ let
   screenshot = "${pkgs.grimblast}/bin/grimblast";
   colourPicker = "${pkgs.hyprpicker}/bin/hyprpicker";
   ocr = "${pkgs.tesseract}/bin/tesseract";
+  backlightControl = "${pkgs.brightnessctl}/bin/brightnessctl";
 in
 {
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {
@@ -62,6 +63,9 @@ in
 	        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
 	        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 	        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+          ", XF86MonBrightnessUp, exec, ${backlightControl} set +5%"
+          ", XF86MonBrightnessDown, exec, ${backlightControl} set 5%-"
 	      ];
         
         # Bind Press & Hold, Even When Locked

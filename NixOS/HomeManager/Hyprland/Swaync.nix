@@ -12,7 +12,7 @@
         control-center-layer = "top";
         layer-shell = true;
         ignore-gtk-theme = false;
-        cssPriority = "application";
+        cssPriority = "user";
         control-center-width = 700;
         control-center-margin-top = 5;
         control-center-margin-bottom = 500;

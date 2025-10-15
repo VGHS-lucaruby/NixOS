@@ -3,6 +3,7 @@
 let
   CSS = builtins.readFile ./Style.css;
   btController = "${pkgs.overskride}/bin/overskride";
+  backlightControl = "${pkgs.brightnessctl}/bin/brightnessctl";
 in
 {
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {
@@ -22,15 +23,14 @@ in
           modules-left = [ 
             "hyprland/workspaces"
             "mpris"
+            "idle_inhibitor"
           ];
           modules-center = [
             "clock"
           ];
           modules-right = [
-            "idle_inhibitor"
-            "cpu"
-            "memory"
             "disk"
+            "backlight"
             "battery"
             "wireplumber"
             "bluetooth"
@@ -75,7 +75,9 @@ in
           
           wireplumber = {
             scroll-step = 5;
+            reverse-scrolling = true;
             format = "{icon} {volume}%";
+            format-source = "{icon} {volume}%";
             format-icons = [ "" "" "" ];
             format-muted = " {volume}%";
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
@@ -95,11 +97,30 @@ in
             };
           };
 
+          backlight = {
+             format = "{icon} {percent}%";
+             format-icons = ["" ""];
+             reverse-scrolling = true;
+             on-scroll-up = "${backlightControl} set +5%";
+             on-scroll-down = "${backlightControl} set 5%-";
+          };
+
+          battery = {
+            interval = 60;
+            states = {
+              warning = 25;
+              critical = 15;
+            };
+            format = "{icon} {capacity}%";
+            format-icons = [ "" "" "" "" "" ];
+            max-length = 25;
+          };         
+
           bluetooth = {
             on-click = btController;
 	          format = " {status}";
 	          format-connected = "󰂰 {device_alias}";
-	          format-connected-battery = "󰂰 {device_alias} 󰁾{device_battery_percentage}%";
+	          format-connected-battery = "󰂰 {device_alias} 󰁾 {device_battery_percentage}%";
             format-disabled = "󰂲";
             format-off = "󰂲";
             format-no-controller = "";

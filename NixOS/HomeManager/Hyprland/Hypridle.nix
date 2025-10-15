@@ -1,7 +1,7 @@
 { config, lib, osConfig, pkgs, ... }:
 
 let
-  backlightControl = pkgs.brightnessctl;
+  backlightControl = "${pkgs.brightnessctl}/bin/brightnessctl";
 in
 {
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {

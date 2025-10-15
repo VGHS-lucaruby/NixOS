@@ -1,11 +1,9 @@
 { ... }:
 
 {
-  imports =
-  [
+  imports = [
     ./AMDGPU.nix
     ./BootLoader.nix
-    ./FileSystem.nix
     ./Fingerprint.nix
     ./Firmware.nix
     ./Font.nix
@@ -16,7 +14,9 @@
     ./Options.nix
     ./Pipewire.nix
     ./Plymouth.nix
+    ./SecureBoot.nix
     ./Services.nix
+    ./TPM.nix
     ./Zsh.nix
   ];
 }

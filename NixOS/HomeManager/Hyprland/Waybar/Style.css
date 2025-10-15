@@ -53,20 +53,13 @@ window#waybar {
 #idle_inhibitor,
 #battery,
 #mpris,
-#bluetooth {
+#bluetooth,
+#backlight {
     padding: 3pt 10pt;
 }
 
 #clock {
     background-color: @theme_bg_color;
-}
-
-#cpu {
-    background-color: @STRAWBERRY_300;
-}
-
-#memory {
-    background-color: @ORANGE_300;
 }
 
 #wireplumber {
@@ -90,11 +83,16 @@ window#waybar {
 }
 
 #idle_inhibitor.activated {
-    background-color: @theme_selected_bg_color;
+    background-color: @STRAWBERRY_300;
 }
 
 #mpris {
     background-color: @MINT_700;
+}
+
+#backlight {
+    color: @theme_bg_color;
+    background-color: @ORANGE_300;
 }
 
 #bluetooth {
@@ -120,7 +118,7 @@ window#waybar {
     }
 }
 
-#battery.warning:not(.charging) {
+#battery.critical:not(.charging) {
     background: @warning_color;
     animation-name: blink;
     animation-duration: 0.5s;
