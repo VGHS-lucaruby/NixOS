@@ -37,11 +37,28 @@ in
         general = {
           gaps_out = 5;
           gaps_in = 3;
+          "col.active_border" = "0xFF8FBCBB";
+          "col.inactive_border" = "0xFF434C5E";
         };
 
         decoration = {
           rounding = 5;
           rounding_power = 3;
+          inactive_opacity = 0.98;
+          blur = { 
+            enabled = false;
+          };
+          shadow = {
+            enabled = false;
+          };
+        };
+
+        misc = {
+          vfr = true;
+        };
+
+        xwayland = {
+          force_zero_scaling = true;
         };
       };
     };

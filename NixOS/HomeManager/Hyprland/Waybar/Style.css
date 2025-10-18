@@ -19,7 +19,7 @@ window#waybar {
 }
 
 .modules-right {
-    margin: 3pt 3pt 0 0;
+    margin: 3pt 5pt 0 0;
 }
 .modules-center {
     margin: 3pt 0 0 0;
@@ -71,7 +71,7 @@ window#waybar {
 }
 
 #tray {
-    background-color: @COCOA_300;
+    background-color: @theme_bg_color;
 }
 
 #disk {
@@ -79,11 +79,11 @@ window#waybar {
 }
 
 #idle_inhibitor {
-    background-color: @BLACK_300;
+    background-color: @COCOA_300;
 }
 
 #idle_inhibitor.activated {
-    background-color: @STRAWBERRY_300;
+    background-color: @COCOA_100;
 }
 
 #mpris {

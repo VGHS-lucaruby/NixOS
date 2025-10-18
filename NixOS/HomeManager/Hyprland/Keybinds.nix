@@ -27,6 +27,15 @@ in
           "$mod SHIFT, c, exec, ${colourPicker} -a"
           "$mod SHIFT, s, exec, ${screenshot} copy area"
           "$mod SHIFT, t, exec, ${screenshot} save area stdout | ${ocr} stdin stdout | wl-copy"
+          "$mod SHIFT, b, exec, bluetoothctl power $(bluetoothctl show | grep -q \"Powered: yes\" && echo off || echo on)"
+          "$mod SHIFT, h, movefocus, l"
+          "$mod SHIFT, j, movefocus, d"
+          "$mod SHIFT, k, movefocus, u"
+          "$mod SHIFT, l, movefocus, r"
+          "$mod CONTROL, h, movewindow, l"
+          "$mod CONTROL, j, movewindow, d"
+          "$mod CONTROL, k, movewindow, u"
+          "$mod CONTROL, l, movewindow, r"
         ]
         ++ (
           builtins.concatLists (builtins.genList (i:
@@ -66,6 +75,9 @@ in
           ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
           ", XF86MonBrightnessUp, exec, ${backlightControl} set +5%"
           ", XF86MonBrightnessDown, exec, ${backlightControl} set 5%-"
+          "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_SOURCE@ 5%+"
+	        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
+          "SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
 	      ];
         
         # Bind Press & Hold, Even When Locked

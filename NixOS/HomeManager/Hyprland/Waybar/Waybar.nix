@@ -2,8 +2,8 @@
 
 let
   CSS = builtins.readFile ./Style.css;
-  btController = "${pkgs.overskride}/bin/overskride";
   backlightControl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  bluetoothControl = "${pkgs.blueberry}/bin/blueberry";
 in
 {
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {
@@ -33,6 +33,7 @@ in
             "backlight"
             "battery"
             "wireplumber"
+            "wireplumber#source"
             "bluetooth"
             "tray" 
           ];
@@ -48,7 +49,6 @@ in
         	  status-icons = {
         	  	playing = "";
         	  	paused = "";
-        	  	stopped = "";
         	  };
           };
 
@@ -77,10 +77,18 @@ in
             scroll-step = 5;
             reverse-scrolling = true;
             format = "{icon} {volume}%";
-            format-source = "{icon} {volume}%";
             format-icons = [ "" "" "" ];
-            format-muted = " {volume}%";
+            format-muted = "";
             on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          };
+
+          "wireplumber#source" = {
+            scroll-step = 5;
+            reverse-scrolling = true;
+            node-type = "Audio/Source";
+            format = "󰍬 {volume}%";
+            format-muted = "󰍭";
+            on-click = "wpctl set-mute @DEFAULT_SOURCE@ toggle";
           };
 
           disk = {
@@ -117,7 +125,7 @@ in
           };         
 
           bluetooth = {
-            on-click = btController;
+            on-click = bluetoothControl;
 	          format = " {status}";
 	          format-connected = "󰂰 {device_alias}";
 	          format-connected-battery = "󰂰 {device_alias} 󰁾 {device_battery_percentage}%";

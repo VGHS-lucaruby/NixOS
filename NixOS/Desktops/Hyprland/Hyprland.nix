@@ -14,7 +14,6 @@
       wayland-utils
       wl-clipboard
       wlroots
-      overskride
     ];
 
     xdg.portal = {
