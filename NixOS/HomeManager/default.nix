@@ -12,6 +12,7 @@
     ./Media.nix
     ./Options.nix
     ./SteamDLSpeedFix.nix
+    ./XDG.nix
     ./Zsh.nix
   ];
 }

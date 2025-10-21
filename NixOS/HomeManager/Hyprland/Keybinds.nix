@@ -5,6 +5,52 @@ let
   colourPicker = "${pkgs.hyprpicker}/bin/hyprpicker";
   ocr = "${pkgs.tesseract}/bin/tesseract";
   backlightControl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  screenshotScript = with pkgs; writeShellApplication {
+    name = "screenshot";
+    runtimeInputs = [ bash zbar grimblast tesseract xdg-user-dirs ];
+    text = ''
+      exec > /dev/null 2>&1
+
+      screenshotDir="$(xdg-user-dir PICTURES)/Screenshots"
+      screenshotFile="$screenshotDir/$(date "+%F@%T")"
+      tmpScreenshot=$(mktemp /tmp/screenshot_XXXXXX)
+
+      mkdir -p "$screenshotDir"
+
+      screenshot() {
+      	grimblast copysave "$1" "$2"
+      }
+
+      qrcode() {
+      	screenshot "area" "$1"
+      	zbarimg --quiet --raw "$1" | tr -d '\n' | wl-copy
+      	rm "$1"
+      }
+
+      ocr() {
+      	tmpOcr=$(mktemp /tmp/OCR_XXXXXX)
+      	screenshot "area" "$1"
+      	tesseract "$1" "$tmpOcr"
+      	head -c -1 < "$tmpOcr.txt" | wl-copy
+      	rm "$1"
+      	rm "$tmpOcr.txt"
+      }
+
+      if [ "$1" = "full" ];
+      then
+      	screenshot "screen" "$screenshotFile"
+      elif [ "$1" = "area" ];
+      then
+      	screenshot "area" "$screenshotFile"
+      elif [ "$1" = "ocr" ];
+      then
+      	ocr "$tmpScreenshot"
+      elif [ "$1" = "qr" ];
+      then
+      	qrcode "$tmpScreenshot"
+      fi
+    '';
+  };
 in
 {
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {
@@ -25,8 +71,11 @@ in
           "$mod, r, exec, vicinae toggle"
 	        "$mod, return, exec, kitty"
           "$mod SHIFT, c, exec, ${colourPicker} -a"
-          "$mod SHIFT, s, exec, ${screenshot} copy area"
-          "$mod SHIFT, t, exec, ${screenshot} save area stdout | ${ocr} stdin stdout | wl-copy"
+          ", Print, exec, ${screenshotScript}/bin/screenshot full"
+          ", XF86SelectiveScreenshot, exec, ${screenshotScript}/bin/screenshot area"
+          "$mod SHIFT, s, exec, ${screenshotScript}/bin/screenshot area"
+          "$mod SHIFT, t, exec, ${screenshotScript}/bin/screenshot ocr"
+          "$mod SHIFT, z, exec, ${screenshotScript}/bin/screenshot qr"
           "$mod SHIFT, b, exec, bluetoothctl power $(bluetoothctl show | grep -q \"Powered: yes\" && echo off || echo on)"
           "$mod SHIFT, h, movefocus, l"
           "$mod SHIFT, j, movefocus, d"
