@@ -7,9 +7,6 @@ in
   config = lib.mkIf (osConfig.modDesktop.name == "Hyprland") {
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = with pkgs.hyprlandPlugins; [
-        hyprscrolling
-      ];
       settings = {
         monitor = displaySettings;
 
@@ -32,6 +29,7 @@ in
         gestures = {
           workspace_swipe = true;
           workspace_swipe_forever = true;
+          workspace_swipe_direction_lock_threshold = 0;
         };
         
         general = {
