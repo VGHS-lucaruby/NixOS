@@ -1,5 +1,19 @@
 { config, pkgs, ... }:
 
+let
+  zshInit = with pkgs; writeShellApplication {
+    name = "zshInitScript";
+    runtimeInputs = [ fastfetch ];
+    text = '' 
+      set +u
+      if [ -z "$XDG_CURRENT_DESKTOP" ] && [ "$XDG_VTNR" = 1 ]; then
+        hyprland
+      else
+        fastfetch
+      fi
+    '';
+  };
+in 
 {
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
@@ -9,7 +23,7 @@
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
       enableLsColors = true;
-      shellInit = "fastfetch";
+      shellInit = "${zshInit}/bin/zshInitScript";
       histSize = 1000;
       shellAliases = {
         ls = "ls --color=auto";

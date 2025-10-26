@@ -15,7 +15,6 @@
     htop
     btop-rocm
     glances
-    fastfetch
     hfsprogs
     sops
     rage
