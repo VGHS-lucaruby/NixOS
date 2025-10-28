@@ -14,6 +14,7 @@
     ./Options.nix
     ./Pipewire.nix
     ./Plymouth.nix
+    ./PowerManagement.nix
     ./SecureBoot.nix
     ./Services.nix
     ./TPM.nix

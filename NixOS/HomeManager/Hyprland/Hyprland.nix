@@ -11,10 +11,10 @@ in
         monitor = displaySettings;
 
         exec-once = [
-          "vesktop"
-          "firefox"
-          "evolution"
-          "steam"
+          "[silent] vesktop"
+          "[silent] firefox"
+          "[silent] evolution"
+          "[silent] steam"
         ];
 
         input = {
