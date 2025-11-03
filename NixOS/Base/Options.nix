@@ -12,7 +12,6 @@
       type = with types; uniq str;
       description = "Display configuration string"; 
     };
-    modHowdy.enable = mkEnableOption "Enable Howdy Login";
   };
   config.modFingerprint.enable = lib.mkDefault false;
   config.modSecureBoot.enable = lib.mkDefault false;
