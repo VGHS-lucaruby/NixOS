@@ -18,7 +18,7 @@ let
       mkdir -p "$screenshotDir"
 
       screenshot() {
-      	grimblast copysave "$1" "$2"
+      	grimblast --freeze copysave "$1" "$2"
       }
 
       qrcode() {
