@@ -11,18 +11,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, vicinae, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, ... } @inputs:
     let
       system = "x86_64-linux";
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};

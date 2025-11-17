@@ -2,8 +2,6 @@
 
 {
   imports = [
-    inputs.vicinae.homeManagerModules.default
-    ./Waybar
     ./Hypridle.nix
     ./Hyprland.nix
     ./Hyprlock.nix
@@ -11,7 +9,8 @@
     ./HyprpolkitAgent.nix
     ./Keybinds.nix
     ./Swaync.nix
-    ./Vicinae.nix
     ./WindowRules.nix
+    ../Rofi
+    ../Waybar
   ];
 }

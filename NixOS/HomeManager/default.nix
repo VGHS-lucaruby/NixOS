@@ -11,6 +11,7 @@
     ./MangoHud.nix
     ./Media.nix
     ./Options.nix
+    ./PowerManagement.nix
     ./SteamDLSpeedFix.nix
     ./XDG.nix
     ./Zsh.nix

@@ -68,7 +68,7 @@ in
           "$mod, l, exec, loginctl lock-session"
           "$mod, b, exec, firefox"
 	        "$mod, e, exec, thunar"
-          "$mod, r, exec, vicinae toggle"
+          "$mod, r, exec, rofi -show run"
 	        "$mod, return, exec, kitty"
           "$mod SHIFT, c, exec, ${colourPicker} -a"
           ", Print, exec, ${screenshotScript}/bin/screenshot full"

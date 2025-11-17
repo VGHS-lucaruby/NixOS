@@ -5,7 +5,6 @@
     ./Packages
     ./Firefox.nix
     ./Gaming.nix
-    ./Howdy.nix
     ./Mullvad.nix
     ./Overlays.nix
     ./SSH.nix
