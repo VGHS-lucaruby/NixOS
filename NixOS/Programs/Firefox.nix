@@ -43,6 +43,7 @@
           (extension "sponsorblock" "sponsorBlocker@ajay.app")
           (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
 					(extension "tampermonkey" "firefox@tampermonkey.net")
+					(extension "keepa" "amptra@keepa.com")
         ];
 			"3rdparty".Extensions = {
 				# https://github.com/gorhill/uBlock/blob/master/platform/common/managed_storage.json
